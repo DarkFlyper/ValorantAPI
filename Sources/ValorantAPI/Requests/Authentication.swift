@@ -123,7 +123,7 @@ private struct CookiesRequest: JSONJSONRequest, Encodable, AuthRequest {
 	let clientID = "play-valorant-web-prod"
 	let responseType = "token id_token"
 	let redirectURI = "https://playvalorant.com/"
-	let nonce = 1 // TODO: this feels wrong, not sure what the nonce would be for though
+	let nonce = "1" // TODO: this feels wrong, not sure what the nonce would be for though
 	let scope = "account openid"
 }
 
