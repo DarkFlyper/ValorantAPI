@@ -44,6 +44,7 @@ public extension Weapon.ID {
 	static let phantom = Self("ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a")!
 	static let vandal = Self("9c82e19d-4575-0200-1a81-3eacf00cf872")!
 	static let marshal = Self("c4883e50-4494-202c-3ec3-6b8a9284f00b")!
+	static let outlaw = Self("5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c")!
 	static let `operator` = Self("a03b24d3-4319-996d-0f8c-94bbfba1dfc7")!
 	static let ares = Self("55d8a0f4-4274-ca67-fe2c-06ab45efdf58")!
 	static let odin = Self("63e6c2b6-4a8e-869c-3d4c-e38355226584")!
