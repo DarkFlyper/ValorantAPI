@@ -64,6 +64,7 @@ public extension Weapon.ID {
 		phantom,
 		vandal,
 		marshal,
+		outlaw,
 		`operator`,
 		ares,
 		odin,
