@@ -108,7 +108,7 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
         "/pregame/v1/matches/\(matchID)/quit"
     }
 
-    typealias Response = Void
+    typealias Response = LivePregameInfo
 }
 
 /// Marks requests as needing a different base URL
