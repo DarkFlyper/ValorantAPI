@@ -9,7 +9,7 @@ struct ExpectedRequest {
 	
 	var requestBody: Tracked<Data>?
 	var method: Tracked<String>
-	var responseCode = 200
+	var responseCodes = [200, 204]
 	var responseBody: Data?
 	
 	init(to url: URL, file: StaticString = #filePath, line: UInt = #line) {
