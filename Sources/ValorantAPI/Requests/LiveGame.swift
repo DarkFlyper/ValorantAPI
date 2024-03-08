@@ -97,7 +97,7 @@ private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
     typealias Response = LivePregameInfo
 }
 
-private struct DodgeAgentRequest: PostRequest, LiveGameRequest {
+private struct DodgeAgentRequest: LiveGameRequest {
     var httpMethod: String { "POST" }
 
     var matchID: Match.ID
@@ -116,7 +116,7 @@ struct NoResponse: Codable {}
 
 /// Marks requests as needing a different base URL
 protocol LiveGameRequest: ValorantRequest {}
-public protocol PostRequest: HTTPRequest {}
+//public protocol PostRequest: HTTPRequest {}
 
 extension LiveGameRequest {
     func baseURL(for location: Location) -> URL {
