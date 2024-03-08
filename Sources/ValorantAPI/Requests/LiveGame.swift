@@ -99,7 +99,9 @@ private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
 
 private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     var httpMethod: String { "POST" }
+
     var matchID: Match.ID
+
     var inPregame: Bool { true }
 
     var path: String {
@@ -110,7 +112,10 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
 
     // Modify the send function to handle 204 response
     func send(clientStack: Protolayer, location: Location) async throws -> LivePregameInfo {
-        let urlRequest = try self.urlRequest(for: location)
+        let urlRequest = try self.urlRequest(for: location) <- {
+            $0.headers.clientVersion = "1.0" // Modify this based on your actual header requirements
+        }
+
         let response = try await clientStack.send(urlRequest)
 
         let code = response.httpMetadata?.statusCode ?? 0
