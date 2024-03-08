@@ -30,10 +30,10 @@
     {
       "identity" : "protoquest",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/juliand665/Protoquest.git",
+      "location" : "https://github.com/DarkFlyper/Protoquest.git",
       "state" : {
         "branch" : "main",
-        "revision" : "380dc463833db7ae51663f1cbe8ba3fc5bb38f79"
+        "revision" : "523b5f735d38e827f3c52a3f87849fbed54209e3"
       }
     },
     {
