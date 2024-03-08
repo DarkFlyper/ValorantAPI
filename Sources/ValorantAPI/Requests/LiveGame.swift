@@ -97,29 +97,22 @@ private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
     typealias Response = LivePregameInfo
 }
 
-private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
+private struct DodgeAgentRequest: PostRequest, LiveGameRequest {
     var httpMethod: String { "POST" }
 
     var matchID: Match.ID
-    var agentID: Agent.ID
-    var shouldLock: Bool
 
     var inPregame: Bool { true }
 
     var path: String {
-        "/pregame/v1/matches/\(matchID)/\(shouldLock ? "lock" : "select")/\(agentID)"
+        "/pregame/v1/matches/\(matchID)/quit"
     }
 
-    // Modify the send function to handle POST requests without decoding a response
-    func send(clientStack: Protolayer, location: Location) async throws {
-        let urlRequest = try self.urlRequest(for: location) <- {
-            $0.headers.clientVersion = "1.0" // Modify this based on your actual header requirements
-        }
-
-        // Perform the POST request without expecting a response
-        _ = try await clientStack.send(urlRequest)
-    }
+    // Indicate that this request doesn't expect a response body
+    typealias Response = NoResponse
 }
+
+struct NoResponse: Codable {}
 
 /// Marks requests as needing a different base URL
 protocol LiveGameRequest: ValorantRequest {}
