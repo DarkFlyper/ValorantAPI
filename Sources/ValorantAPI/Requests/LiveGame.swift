@@ -81,7 +81,7 @@ private struct LiveMatchInfoRequest<Response: Decodable>: GetJSONRequest, LiveGa
     }
 }
 
-private struct PickAgentRequest: GetDataRequest, LiveGameRequest {
+private struct PickAgentRequest: GetStringRequest, LiveGameRequest {
     var httpMethod: String { "POST" }
 
     var matchID: Match.ID
