@@ -109,31 +109,6 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     }
 
     typealias Response = LivePregameInfo
-
-    // Modify the send function to handle 204 response
-    func send(clientStack: Protolayer, location: Location) async throws -> LivePregameInfo {
-        let urlRequest = try self.urlRequest(for: location) <- {
-            $0.headers.clientVersion = "1.0" // Modify this based on your actual header requirements
-        }
-
-        let response = try await clientStack.send(urlRequest)
-
-        let code = response.httpMetadata?.statusCode ?? 0
-
-        // Check for 204 response and handle it appropriately
-        if code == 204 {
-            // Handle the 204 response here, e.g., return a default LivePregameInfo
-            return LivePregameInfo() // Adjust this based on your actual response structure
-        }
-
-        // Handle other response codes
-        guard code == 200 else {
-            throw APIError(statusCode: code, response: response)
-        }
-
-        // Decode and return the response
-        return try self.decodeResponse(from: response)
-    }
 }
 
 /// Marks requests as needing a different base URL
