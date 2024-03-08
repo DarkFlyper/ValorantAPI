@@ -116,6 +116,7 @@ struct NoResponse: Codable {}
 
 /// Marks requests as needing a different base URL
 protocol LiveGameRequest: ValorantRequest {}
+public protocol PostRequest: HTTPRequest {}
 
 extension LiveGameRequest {
     func baseURL(for location: Location) -> URL {
