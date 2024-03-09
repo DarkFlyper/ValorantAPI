@@ -109,7 +109,7 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     }
 
     // Indicate that this request doesn't expect a response body
-    typealias Response = LivePregameInfo
+    typealias Response = NoResponse
 }
 
 struct NoResponse: Codable {}
