@@ -97,7 +97,7 @@ private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
     typealias Response = LivePregameInfo
 }
 
-private struct DodgeAgentRequest: JSONJSONRequest, LiveGameRequest {
+private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     var httpMethod: String { "POST" }
 
     var matchID: Match.ID
@@ -109,7 +109,7 @@ private struct DodgeAgentRequest: JSONJSONRequest, LiveGameRequest {
     }
 
     // Indicate that this request doesn't expect a response body
-    typealias Response = NoResponse
+    typealias Response = LivePregameInfo
 }
 
 struct NoResponse: Codable {}
