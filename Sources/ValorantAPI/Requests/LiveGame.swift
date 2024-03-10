@@ -107,6 +107,9 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     var path: String {
         "/pregame/v1/matches/\(matchID)/quit"
     }
+
+    // Indicate that this request doesn't expect a response body
+    typealias Response = NoResponse
 }
 
 struct NoResponse: Codable {}
