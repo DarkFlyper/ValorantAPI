@@ -50,7 +50,7 @@ extension ValorantClient {
     }
 
     /// Dodges the agent selection process.
-    public func dodgeAgent(in matchID: Match.ID) async throws {
+    public func dodgeAgent(in matchID: Match.ID) async throws -> LivePregameInfo {
         try await send(DodgeAgentRequest(matchID: matchID))
     }
 }
@@ -109,7 +109,7 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     }
 
     // Indicate that this request doesn't expect a response body
-    typealias Response = NoResponse
+    typealias Response = LivePregameInfo
 }
 
 struct NoResponse: Decodable {}
