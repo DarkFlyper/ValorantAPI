@@ -97,7 +97,7 @@ private struct PickAgentRequest: GetJSONRequest, LiveGameRequest {
     typealias Response = LivePregameInfo
 }
 
-private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
+private struct DodgeAgentRequest<Response: Decodable>: GetJSONRequest, LiveGameRequest {
     var httpMethod: String { "POST" }
 
     var matchID: Match.ID
