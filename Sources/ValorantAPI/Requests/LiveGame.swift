@@ -109,10 +109,10 @@ private struct DodgeAgentRequest: GetJSONRequest, LiveGameRequest {
     }
 
     // Indicate that this request doesn't expect a response body
-    typealias Response = LivePregameInfo
+    typealias Response = NoResponse
 }
 
-struct NoResponse: Codable {}
+struct NoResponse: Decodable {}
 
 /// Marks requests as needing a different base URL
 protocol LiveGameRequest: ValorantRequest {}
