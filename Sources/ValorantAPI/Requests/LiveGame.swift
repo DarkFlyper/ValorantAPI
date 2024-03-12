@@ -50,7 +50,7 @@ extension ValorantClient {
     }
 
     /// Dodges the agent selection process.
-    public func dodgeAgent(in matchID: Match.ID) async throws [Match.ID] {
+    public func dodgeAgent(in matchID: Match.ID) async throws -> Match.ID {
         try await send(DodgeAgentRequest(matchID: matchID))
     }
 }
