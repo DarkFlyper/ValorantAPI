@@ -68,7 +68,7 @@ public struct ValorantClient {
 		let response = try await clientStack.send(urlRequest)
 		
 		let code = response.httpMetadata!.statusCode
-		guard code == 200 || code == 204 else {
+		guard code == 200 else {
 			throw APIError(statusCode: code, response: response)
 		}
 		
